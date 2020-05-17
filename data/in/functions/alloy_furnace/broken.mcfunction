@@ -1,0 +1,3 @@
+kill @e[type=item,sort=nearest,nbt={Item:{id:"minecraft:blast_furnace",Count:1b}}]
+summon minecraft:item ~ ~1 ~ {Motion:[0.0,0.27,0.0],Item:{id:"minecraft:evoker_spawn_egg",Count:1b,tag:{display:{Name:'{"text":"Alloy Furnace T1","color":"yellow","italic":false}',Lore:['{"text":"Melts Ingots Together","color":"green","italic":false}','{"text":"To Create Alloys","color":"green","italic":false}','{"text":"(Requires IF)","color":"red","italic":false}']},HideFlags:1,alloyFurnace:1b,Enchantments:[{id:"minecraft:protection",lvl:0s}],EntityTag:{id:"minecraft:area_effect_cloud",Radius:0f,Duration:1,WaitTime:0,Tags:["alloyFurnaceCloud"]}}}}
+kill @s

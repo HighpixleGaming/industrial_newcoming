@@ -1,0 +1,2 @@
+#Detect when there is coal#
+execute as @e[tag=fuelGeneratorStand,tag=checked] at @s if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} run function in:fuel_generator/generate

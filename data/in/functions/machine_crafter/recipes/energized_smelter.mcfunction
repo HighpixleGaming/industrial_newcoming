@@ -1,0 +1,2 @@
+data modify block ~ ~1 ~ Items set value null
+give @p minecraft:endermite_spawn_egg{display:{Name:'{"text":"Energized Smelter","color":"yellow","italic":false}',Lore:['{"text":"Works Like A","color":"green","italic":false}','{"text":"Custom Furnace","color":"green","italic":false}','{"text":"(Requires IF)","color":"red","italic":false}']},HideFlags:1,energizedSmelter:1b,Enchantments:[{id:"minecraft:protection",lvl:0s}],EntityTag:{id:"minecraft:area_effect_cloud",Radius:0f,Duration:1,WaitTime:0,Tags:["energizedSmelterCloud"]}} 1

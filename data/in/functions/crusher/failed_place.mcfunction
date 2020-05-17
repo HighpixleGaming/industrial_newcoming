@@ -1,0 +1,2 @@
+give @p minecraft:ravager_spawn_egg{display:{Name:'{"text":"Crusher","color":"yellow","italic":false}',Lore:['{"text":"Crushes Items","color":"green","italic":false}','{"text":"Into Dusts or","color":"green","italic":false}','{"text":"Pulverized Versions","color":"green","italic":false}','{"text":"(Requires IF)","color":"red","italic":false}']},HideFlags:1,crusher:1b,Enchantments:[{id:"minecraft:protection",lvl:0s}],EntityTag:{id:"minecraft:area_effect_cloud",Radius:0f,Duration:1,WaitTime:0,Tags:["crusherCloud"]}} 1
+kill @s
