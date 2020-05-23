@@ -1,6 +1,6 @@
 ###Clearing###
-clear @a barrier{inBarrier:1b}
-kill @e[nbt={Item:{tag:{inBarrier:1b}}}]
+clear @a red_stained_glass_pane{inGlass:1b}
+kill @e[nbt={Item:{tag:{inGlass:1b}}}]
 
 ###Fuel Generator### 
 
@@ -64,5 +64,4 @@ execute as @e[tag=crusherStand,tag=checked] at @s run function in:crusher/main
 
 
 ###Tags###
-execute as @e[type=item,nbt={Item:{id:"minecraft:emerald",Count:1b,tag:{chargeT1:1b}}}] run tag @s add chargeT1
-
+execute as @e[type=item,nbt={Item:{id:"minecraft:lime_dye",Count:1b,tag:{chargeT1:1b}}}] run tag @s add chargeT1
