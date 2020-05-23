@@ -5,7 +5,8 @@ kill @e[nbt={Item:{tag:{inGlass:1b}}}]
 ###Fuel Generator### 
 
 #Check#
-execute as @e[tag=fuelGeneratorCloud] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["fuelGeneratorStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:iron_block",Count:1b}]}
+execute as @e[tag=fuelGeneratorCloud,limit=1,tag=!summoned] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["fuelGeneratorStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:iron_block",Count:1b}]}
+execute as @e[tag=fuelGeneratorCloud,limit=1] run tag @s add summoned
 execute as @e[tag=fuelGeneratorStand,tag=notChecked] at @s if block ~ ~1 ~ air run function in:fuel_generator/place
 execute as @e[tag=fuelGeneratorStand,tag=notChecked] at @s unless block ~ ~1 ~ air run function in:fuel_generator/failed_place
 execute as @e[tag=fuelGeneratorStand,tag=checked] at @s if block ~ ~1 ~ air run function in:fuel_generator/broken

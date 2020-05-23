@@ -5,11 +5,11 @@ execute if score @s inTimer matches 1.. run data modify block ~ ~1 ~ BurnTime se
 execute if score @s inTimer matches 1.. run scoreboard players remove @s inTimer 1
 
 #Remove 1 Coal When Timer Hits 0#
-execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:"minecraft:lime_dye",Count:64b}]} store result score @s inItemCount run data get block ~ ~1 ~ Items[{Slot:1b,id:"minecraft:coal"}].Count
-execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:"minecraft:lime_dye",Count:64b}]} run scoreboard players remove @s inItemCount 1
-execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:"minecraft:lime_dye",Count:64b}]} store result block ~ ~1 ~ Items[{id:"minecraft:coal"}].Count byte 1 run scoreboard players get @s inItemCount
-execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:"minecraft:lime_dye",Count:64b}]} run scoreboard players reset @s inItemCount
-execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:",minecraft:lime_dye",Count:64b}]} run data modify block ~ ~1 ~ Items[{Slot:1b}].Count set value 0
+execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} run data modify block ~ ~1 ~ Items[{Slot:1b}].Count set value 0
+execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} store result score @s inItemCount run data get block ~ ~1 ~ Items[{Slot:1b,id:"minecraft:coal"}].Count
+execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} run scoreboard players remove @s inItemCount 1
+execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal",Count:1b}]} store result block ~ ~1 ~ Items[{id:"minecraft:coal"}].Count byte 1 run scoreboard players get @s inItemCount
+execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} run scoreboard players reset @s inItemCount
 
 #Add 1 Charge T1 When Timer Hits 0#
 execute if score @s inTimer matches ..0 if block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:"minecraft:lime_dye"}]} store result score @s inItemCount run data get block ~ ~1 ~ Items[{id:"minecraft:lime_dye"}].Count
