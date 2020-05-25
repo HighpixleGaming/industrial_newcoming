@@ -29,7 +29,8 @@ execute as @e[tag=alloyFurnaceStand,tag=checked] at @s if block ~ ~1 ~ air run f
 ###Energized Smelter###
 
 #Check#
-execute as @e[tag=energizedSmelterCloud] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["energizedSmelterStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:redstone_block",Count:1b}]}
+execute as @e[tag=energizedSmelterCloud,tag=!summoned] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["energizedSmelterStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:redstone_block",Count:1b}]}
+execute as @e[tag=energizedSmelterCloud] run tag @s add summoned
 execute as @e[tag=energizedSmelterStand,tag=notChecked] at @s if block ~ ~1 ~ air run function in:energized_smelter/place
 execute as @e[tag=energizedSmelterStand,tag=notChecked] at @s unless block ~ ~1 ~ air run function in:energized_smelter/failed_place
 execute as @e[tag=energizedSmelterStand,tag=checked] at @s if block ~ ~1 ~ air run function in:energized_smelter/broken
