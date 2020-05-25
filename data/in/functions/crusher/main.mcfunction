@@ -1,12 +1,26 @@
 #Powering And Displaying Power#
 execute if entity @e[tag=chargeT1,distance=..2,nbt={Item:{Count:1b}}] if entity @s[tag=!powered] run function in:crusher/gain_power_t1
+#Display IF#
 execute as @p at @s anchored eyes facing entity @e[sort=nearest,limit=1,type=!player,tag=crusherStand,tag=powered,tag=!displaying] eyes anchored feet positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..0.2] run function in:display_power
 
 ###Recipes###
-execute unless block ~ ~1 ~ smoker{Items:[{Slot:0b,id:"minecraft:coal"}]} run data modify block ~ ~1 ~ Items set value [{Slot:1b,id:"minecraft:barrier",Count:1b,tag:{inBarrier:1b,display:{Name:'{"text":" "}'}}}]
-execute if block ~ ~1 ~ smoker{Items:[{Slot:0b,id:"minecraft:coal"}]} run function in:crusher/recipes/pulverized_coal
 
-#Modifying Data Based On IF#
+#Pulverized Coal#
+execute if score @s ifPower matches 1.. if block ~ ~1 ~ smoker{Items:[{Slot:0b,id:"minecraft:coal"}]} unless block ~ ~1 ~ smoker{Items:[{Slot:2b,id:"minecraft:black_dye",Count:64b}]} run function in:crusher/recipes/pulverized_coal
+
+########################
+
+#Drop Items In Slot 1#
+execute unless block ~ ~1 ~ smoker{Items:[{Slot:1b,id:"minecraft:red_stained_glass_pane"}]} if block ~ ~1 ~ smoker{Items:[{Slot:1b}]} run function in:drop/1
+execute unless block ~ ~1 ~ smoker{Items:[{Slot:1b,id:"minecraft:red_stained_glass_pane"}]} run data modify block ~ ~1 ~ Items insert 0 value {Slot:1b,id:"minecraft:red_stained_glass_pane",Count:1b,tag:{inGlass:1b,display:{Name:'{"text":" "}'}}}
+
+#Remove Tags And Reset Timer#
+execute if entity @s[tag=procCoal] unless block ~ ~1 ~ smoker{Items:[{Slot:0b,id:"minecraft:coal"}]} run scoreboard players reset @s inTimer
+execute if entity @s[tag=procCoal] if block ~ ~1 ~ smoker{Items:[{Slot:2b,id:"minecraft:black_dye",Count:64b}]} run scoreboard players reset @s inTimer
+execute if entity @s[tag=procCoal] unless block ~ ~1 ~ smoker{Items:[{Slot:0b,id:"minecraft:coal"}]} run tag @s remove procCoal
+execute if entity @s[tag=procCoal] if block ~ ~1 ~ smoker{Items:[{Slot:2b,id:"minecraft:black_dye",Count:64b}]} run tag @s remove procCoal
+
+#BurnTime Display Using IF#
 execute if entity @s[scores={ifPower=16}] run data modify block ~ ~1 ~ BurnTime set value 160
 execute if entity @s[scores={ifPower=15}] run data modify block ~ ~1 ~ BurnTime set value 150
 execute if entity @s[scores={ifPower=14}] run data modify block ~ ~1 ~ BurnTime set value 140

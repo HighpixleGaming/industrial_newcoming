@@ -55,7 +55,8 @@ execute as @e[tag=machineCrafterStand,tag=checked] at @s run function in:machine
 ###Crusher###
 
 #Check#
-execute as @e[tag=crusherCloud] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["crusherStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:redstone_block",Count:1b}]}
+execute as @e[tag=crusherCloud,tag=!summoned] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["crusherStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:redstone_block",Count:1b}]}
+execute as @e[tag=crusherCloud] run tag @s add summoned
 execute as @e[tag=crusherStand,tag=notChecked] at @s if block ~ ~1 ~ air run function in:crusher/place
 execute as @e[tag=crusherStand,tag=notChecked] at @s unless block ~ ~1 ~ air run function in:crusher/failed_place
 execute as @e[tag=crusherStand,tag=checked] at @s if block ~ ~1 ~ air run function in:crusher/broken
