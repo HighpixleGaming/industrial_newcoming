@@ -1,5 +1,6 @@
 ###Clearing###
 clear @a red_stained_glass_pane{inGlass:1b}
+clear @a gray_stained_glass_pane{inGlass:1b}
 kill @e[nbt={Item:{tag:{inGlass:1b}}}]
 
 ###Fuel Generator### 
@@ -16,13 +17,17 @@ execute as @e[tag=fuelGeneratorStand,tag=checked] at @s if block ~ ~1 ~ blast_fu
 
 ######################
 
-###Alloy Smelter###
+###Alloy Furnace###
 
 #Check#
-execute as @e[tag=alloyFurnaceCloud] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["alloyFurnaceStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:redstone_block",Count:1b}]}
+execute as @e[tag=alloyFurnaceCloud,tag=!summoned] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["alloyFurnaceStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:furnace",Count:1b}]}
+execute as @e[tag=alloyFurnaceCloud] run tag @s add summoned
 execute as @e[tag=alloyFurnaceStand,tag=notChecked] at @s if block ~ ~1 ~ air run function in:alloy_furnace/place
 execute as @e[tag=alloyFurnaceStand,tag=notChecked] at @s unless block ~ ~1 ~ air run function in:alloy_furnace/failed_place
 execute as @e[tag=alloyFurnaceStand,tag=checked] at @s if block ~ ~1 ~ air run function in:alloy_furnace/broken
+
+#Main#
+execute as @e[tag=alloyFurnaceStand,tag=checked] at @s run function in:alloy_furnace/main
 
 ####################################
 
