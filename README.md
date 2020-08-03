@@ -1,12 +1,12 @@
 # Industrial Newcoming
 
-This is a mod-like datapack for Minecraft 1.15
+This is a mod-like datapack for Minecraft 1.16
 
 THIS PROJECT IS A WIP AS OF YET, ANY AND ALL FILES SHOULD BE CONSIDERED TEMPORARY OR UNFIT FOR USE
 
 # Info
 
-This datapack is meant for Minecraft Java 1.15, I recommend at least 4GB of RAM and a decent computer at least. See <a href="https://github.com/HighpixleGaming/industrial_newcoming/blob/master/README.md#installation">Installation</a>
+This datapack is meant for Minecraft Java 1.16, I recommend at least 4GB of RAM and a decent computer at least. See <a href="https://github.com/HighpixleGaming/industrial_newcoming/blob/master/README.md#installation">Installation</a>
 
 Most of the machines in this pack are made with entities, so be wary when using on a server.
 
