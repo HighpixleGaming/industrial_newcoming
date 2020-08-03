@@ -1,0 +1,13 @@
+{
+    "criteria": {
+        "machineCrafterMade": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "in:machine_crafter"
+            }
+        }
+    },
+    "rewards": {
+        "function": "in:vanil_recipes/machine_crafter"
+    }
+}
