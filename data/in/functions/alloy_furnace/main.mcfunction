@@ -1,12 +1,13 @@
 #Powering And Displaying Power#
-#execute if entity @e[tag=chargeT1,distance=..2,nbt={Item:{Count:1b}}] if entity @s[tag=!powered] run function in:energized_smelter/gain_power_t1
-#execute as @p at @s anchored eyes facing entity @e[sort=nearest,limit=1,type=!player,tag=alloyFurnaceStand,tag=powered] eyes anchored feet positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..0.2] run function in:display_power
+execute if entity @e[tag=chargeT1,distance=..2,nbt={Item:{Count:1b}}] if entity @s[tag=!powered] run function in:energized_smelter/gain_power_t1
+execute as @p at @s anchored eyes facing entity @e[sort=nearest,limit=1,type=!player,tag=alloyFurnaceStand,tag=powered] eyes anchored feet positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..0.2] as @e[sort=nearest,limit=1,type=!player,tag=alloyFurnaceStand,tag=powered] run function in:display_power
+execute if entity @s[tag=powered,scores={ifPower=0}] run tag @s remove powered
 
 ###Recipes###
 
 ##Steel##
-execute if block ~ ~1 ~ barrel{Items:[{Slot:3b,id:"minecraft:iron_ingot"}]} if block ~ ~1 ~ barrel{Items:[{Slot:5b,id:"minecraft:flint",tag:{inGraphite:1b}}]} unless block ~ ~1 ~ barrel{Items:[{Slot:22b}]} run function in:alloy_furnace/recipes/steel
-execute if block ~ ~1 ~ barrel{Items:[{Slot:3b,id:"minecraft:iron_ingot"}]} if block ~ ~1 ~ barrel{Items:[{Slot:5b,id:"minecraft:flint",tag:{inGraphite:1b}}]} if block ~ ~1 ~ barrel{Items:[{Slot:22b,id:"minecraft:iron_ingot",tag:{inSteel:1b}}]} run function in:alloy_furnace/recipes/steel
+execute if entity @s[tag=powered] if block ~ ~1 ~ barrel{Items:[{Slot:3b,id:"minecraft:iron_ingot"}]} if block ~ ~1 ~ barrel{Items:[{Slot:5b,id:"minecraft:flint",tag:{inGraphite:1b}}]} unless block ~ ~1 ~ barrel{Items:[{Slot:22b}]} run function in:alloy_furnace/recipes/steel
+execute if entity @s[tag=powered] if block ~ ~1 ~ barrel{Items:[{Slot:3b,id:"minecraft:iron_ingot"}]} if block ~ ~1 ~ barrel{Items:[{Slot:5b,id:"minecraft:flint",tag:{inGraphite:1b}}]} if block ~ ~1 ~ barrel{Items:[{Slot:22b,id:"minecraft:iron_ingot",tag:{inSteel:1b}}]} run function in:alloy_furnace/recipes/steel
 
 #Remove Tags and Reset Timer#
 execute unless block ~ ~1 ~ barrel{Items:[{Slot:3b,id:"minecraft:iron_ingot"}]} run scoreboard players reset @s inTimer

@@ -1,6 +1,6 @@
 #Powering And Displaying Power#
 execute if entity @e[tag=chargeT1,distance=..2,nbt={Item:{Count:1b}}] if entity @s[tag=!powered] run function in:energized_smelter/gain_power_t1
-execute as @p at @s anchored eyes facing entity @e[sort=nearest,limit=1,type=!player,tag=energizedSmelterStand,tag=powered] eyes anchored feet positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..0.2] run function in:display_power
+execute as @p at @s anchored eyes facing entity @e[sort=nearest,limit=1,type=!player,tag=energizedSmelterStand,tag=powered] eyes anchored feet positioned ^ ^ ^1 rotated as @s positioned ^ ^ ^-1 if entity @s[distance=..0.2] as @e[sort=nearest,limit=1,type=!player,tag=energizedSmelterStand,tag=powered] run function in:display_power
 ###Recipes###
 
 #Graphite#
