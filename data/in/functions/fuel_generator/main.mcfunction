@@ -1,3 +1,6 @@
+#Break Block#
+execute at @s if block ~ ~1 ~ air run function in:fuel_generator/broken
+
 #Detect when there is coal#
 execute if block ~ ~1 ~ blast_furnace{Items:[{Slot:1b,id:"minecraft:coal"}]} unless block ~ ~1 ~ blast_furnace{Items:[{Slot:2b,id:"minecraft:lime_dye",Count:64b}]} run function in:fuel_generator/generate
 

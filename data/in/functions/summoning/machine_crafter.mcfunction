@@ -1,0 +1,3 @@
+execute if entity @s[tag=machineCrafterCloud] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["machineCrafterStand","inCustomBlockStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:crafting_table",Count:1b}]}
+execute if entity @s[tag=machineCrafterStand,tag=notChecked] at @s if block ~ ~1 ~ air run function in:machine_crafter/place
+execute if entity @s[tag=machineCrafterStand,tag=notChecked] at @s unless block ~ ~1 ~ air run function in:machine_crafter/failed_place

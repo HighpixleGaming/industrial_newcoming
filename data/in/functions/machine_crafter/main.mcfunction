@@ -1,3 +1,6 @@
+#Break Block#
+execute at @s if block ~ ~1 ~ air run function in:machine_crafter/broken
+
 ###Detect For Recipes###
 
 #Energized Smelter#

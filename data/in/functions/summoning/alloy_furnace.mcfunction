@@ -1,0 +1,4 @@
+execute if entity @s[tag=alloyFurnaceCloud,tag=!summoned] at @s run summon minecraft:armor_stand ~ ~-0.75 ~ {NoGravity:1b,Invulnerable:1b,Invisible:1b,Tags:["alloyFurnaceStand","inCustomBlockStand","notChecked"],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:furnace",Count:1b}]}
+execute if entity @s[tag=alloyFurnaceCloud] run tag @s add summoned
+execute if entity @s[tag=alloyFurnaceStand,tag=notChecked] at @s if block ~ ~1 ~ air run function in:alloy_furnace/place
+execute if entity @s[tag=alloyFurnaceStand,tag=notChecked] at @s unless block ~ ~1 ~ air run function in:alloy_furnace/failed_place
